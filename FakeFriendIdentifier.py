@@ -6,7 +6,7 @@ L = instaloader.Instaloader()
 
 # Login or load session
 L.login('fake_friend_identifier', 'asdfghjkl123@')
-input_username = input("Enter username")
+input_username = input()
 
 # Obtain profile metadata
 profile = instaloader.Profile.from_username(L.context, str(input_username))
@@ -41,18 +41,18 @@ class InstaBot:
         time.sleep(2)
         self.driver.find_element_by_xpath('//button[@type="submit"]').click()
 
-        time.sleep(2)
+        time.sleep(6)
         self.driver.find_element_by_xpath('/html/body/div[1]/section/main/div/div/div/div/button').click()
-        time.sleep(2)
-        self.driver.find_element_by_xpath('/html/body/div[4]/div/div/div/div[3]/button[2]').click()
+        time.sleep(3)
+        self.driver.find_elements_by_xpath("//button[contains(text(), 'Not Now')]")[0].click()
+        time.sleep(3)
+        self.driver.find_elements_by_xpath("//button[contains(text(), 'Send Message')]")[0].click()
         time.sleep(5)
-        self.driver.find_element_by_xpath('/html/body/div[1]/section/div/div[2]/div/div/div[2]/div/button').click()
-        time.sleep(2)
-        self.driver.find_element_by_xpath('/html/body/div[4]/div/div/div[2]/div[1]/div/div[2]/input').send_keys(str(input_username))
+        self.driver.find_elements_by_name('queryBox')[0].send_keys(str(input_username))
         time.sleep(4)
-        self.driver.find_element_by_xpath('/html/body/div[4]/div/div/div[2]/div[2]/div[1]/div').click()
+        self.driver.find_element_by_xpath('/html/body/div[5]/div/div/div[2]/div[2]/div[1]/div').click()
         time.sleep(2)
-        self.driver.find_element_by_xpath('/html/body/div[4]/div/div/div[1]/div/div[2]').click()
+        self.driver.find_element_by_xpath("/html/body/div[5]/div/div/div[1]/div/div[2]/div/button").click()
         time.sleep(4)
 
         global ans
